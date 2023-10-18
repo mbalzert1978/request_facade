@@ -47,11 +47,11 @@ class _BasicRequester:
 
 
 class TheCatApi:
-    headers = {"x-api-key": None}
-    url = "https://api.thecatapi.com/v1/images/search"
+    _headers = {"x-api-key": None}
+    _url = "https://api.thecatapi.com/v1/images/search"
 
     def __init__(self, api_key: str) -> None:
-        self.headers["x-api-key"] = api_key
+        self._headers["x-api-key"] = api_key
         self._requester = _BasicRequester()
 
     def get[T](self, default: T | None = None, **kwargs: typing.Any) -> T | _Response:
