@@ -47,12 +47,25 @@ class _BasicRequester:
 
 
 class TheCatApi:
-    headers = {"x-api-key": None}
-    url = "https://api.thecatapi.com/v1/images/search"
+  
+    _headers = {"x-api-key": None}
+    _url = "https://api.thecatapi.com/v1/images/search"
 
     def __init__(self, api_key: str) -> None:
-        self.headers["x-api-key"] = api_key
+        self._headers["x-api-key"] = api_key
         self._requester = _BasicRequester()
 
     def get[T](self, default: T | None = None, **kwargs: typing.Any) -> T | _Response:
-        return self._requester.get(url=self.url, default=default, **kwargs)
+        return self._requester.get(url=self._url, default=default, **kwargs)
+
+    def post[T](self, url: str, default: T | None = None, **kwargs) -> T | typing.Any:
+        raise NotImplementedError()
+
+    def put[T](self, url: str, default: T | None = None, **kwargs) -> T | typing.Any:
+        raise NotImplementedError()
+
+    def patch[T](self, url: str, default: T | None = None, **kwargs) -> T | typing.Any:
+        raise NotImplementedError()
+
+    def delete(self, url: str, **kwargs) -> typing.Literal[204]:
+        raise NotImplementedError()
