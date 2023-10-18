@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.12"
 requests = "^2.31.0"
 httpx = "^0.25.0"
+pydantic = "^2.4.2"
+pydantic-settings = "^2.0.3"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.0"
@@ -21,7 +23,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
-line-length = 119
+line-length = 120
 target-version = ['py311']
 
 [tool.ruff]
