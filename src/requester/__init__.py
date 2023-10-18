@@ -47,6 +47,7 @@ class _BasicRequester:
 
 
 class TheCatApi:
+  
     _headers = {"x-api-key": None}
     _url = "https://api.thecatapi.com/v1/images/search"
 
@@ -55,7 +56,7 @@ class TheCatApi:
         self._requester = _BasicRequester()
 
     def get[T](self, default: T | None = None, **kwargs: typing.Any) -> T | _Response:
-        return self._requester.get(url=self.url, default=default, **kwargs)
+        return self._requester.get(url=self._url, default=default, **kwargs)
 
     def post[T](self, url: str, default: T | None = None, **kwargs) -> T | typing.Any:
         raise NotImplementedError()
