@@ -47,6 +47,7 @@ class _BasicRequester:
 
 
 class TheCatApi:
+  
     _headers = {"x-api-key": None}
     _url = "https://api.thecatapi.com/v1/images/search"
 
