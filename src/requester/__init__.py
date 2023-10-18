@@ -1,5 +1,5 @@
 import typing
-from src.requester.adapter import RequestAdapter as _RequestAdapter
+from src.requester.adapter import RequestAdapter as _RequestAdapter, Adapter as _Adapter
 from src.requester.model.cat_api import _Response
 
 __all__ = ["TheCatApi"]
@@ -28,7 +28,7 @@ class _Facade(typing.Protocol):
 
 class _BasicRequester:
     def __init__(self) -> None:
-        self._client = _RequestAdapter()
+        self._client: _Adapter = _RequestAdapter()
 
     def get[T](self, url: str, default: T | None = None, **kwargs: typing.Any) -> T | typing.Any:
         return self._client.get(url=url, default=default, **kwargs)
@@ -55,7 +55,7 @@ class TheCatApi:
         self._requester = _BasicRequester()
 
     def get[T](self, default: T | None = None, **kwargs: typing.Any) -> T | _Response:
-        return self._requester.get(url=self.url, default=default, **kwargs)
+        return self._requester.get(url=self._url, default=default, **kwargs)
 
     def post[T](self, url: str, default: T | None = None, **kwargs) -> T | typing.Any:
         raise NotImplementedError()

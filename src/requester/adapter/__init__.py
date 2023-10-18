@@ -4,7 +4,7 @@ import typing
 from src.requester.adapter.requests import RequestAdapter
 from src.requester.adapter.httpx import HttpxAdapter
 
-__all__ = ["RequestAdapter", "HttpxAdapter"]
+__all__ = ["RequestAdapter", "HttpxAdapter", "Adapter"]
 
 
 class Adapter[T, **P](typing.Protocol):
