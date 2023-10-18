@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "request"
+name = "requester"
 version = "0.1.0"
 description = ""
 authors = ["Markus Iorio <mbalzert@gmail.com>"]
