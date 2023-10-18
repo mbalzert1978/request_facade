@@ -56,3 +56,15 @@ class TheCatApi:
 
     def get[T](self, default: T | None = None, **kwargs: typing.Any) -> T | _Response:
         return self._requester.get(url=self.url, default=default, **kwargs)
+
+    def post[T](self, url: str, default: T | None = None, **kwargs) -> T | typing.Any:
+        raise NotImplementedError()
+
+    def put[T](self, url: str, default: T | None = None, **kwargs) -> T | typing.Any:
+        raise NotImplementedError()
+
+    def patch[T](self, url: str, default: T | None = None, **kwargs) -> T | typing.Any:
+        raise NotImplementedError()
+
+    def delete(self, url: str, **kwargs) -> typing.Literal[204]:
+        raise NotImplementedError()
